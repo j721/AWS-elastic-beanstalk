@@ -1,14 +1,15 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-mongoose.Promise = global.Promise
+//allows for mongoose to be used in different positions inside the code as it is now viewed inglobal mode
+//Promise allows for asynchronous implementation in the code
+mongoose.Promise = global.Promise;
 
-var isConnected
+var isConnected;
 
-module.exports = async = () =>{
-    if (isConnected) return Promise.resolve()
+module.exports = async = () => {
+  if (isConnected) return Promise.resolve();
 
-    return mongoose.connect(process.env.DB)
-        .then(db=>{
-            isConnected = db.connections[0].readyState
-        })
-}
+  return mongoose.connect(process.env.DB).then((db) => {
+    isConnected = db.connections[0].readyState;
+  });
+};

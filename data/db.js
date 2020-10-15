@@ -10,6 +10,6 @@ module.exports = async = () => {
   if (isConnected) return Promise.resolve();
 
   return mongoose.connect(process.env.DB).then((db) => {
-    isConnected = db.connections[0].readyState;
+    isConnected = db.connections[0].readyState; //readyState property describes the loading state of the document
   });
 };
